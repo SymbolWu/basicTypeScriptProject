@@ -20,7 +20,7 @@ function callback(key: any) {
 const Test: React.FC<TestProps> = (props) => {
   const { title } = props;
   const getTitle = (value: string): string => {
-    const newTitle: string = `Current:${value}`;
+    const newTitle: string = `Curnt:${value}`;
     return newTitle
   }
   return (
