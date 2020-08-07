@@ -1,5 +1,12 @@
 import React from "react";
+import PersonalInfo from "./PersonalInfo";
+import styles from './index.less';
 
 export default () => {
-  return <div>Hooks</div>;
+  // console.log(window.location);
+  return (
+    <div>
+      <PersonalInfo />
+    </div>
+  );
 };
