@@ -10,8 +10,10 @@
     "baseUrl": "./",
     "strict": true,
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["src/*"]
     },
+    "allowJs": true,
     "allowSyntheticDefaultImports": true
-  }
+  },
+  "exclude": ["node_modules", "config", "build", "public", "js"]
 }

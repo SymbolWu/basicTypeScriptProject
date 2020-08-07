@@ -9,7 +9,7 @@ module.exports = merge(baseConfig, {
     contentBase: './dist',
     historyApiFallback: true,//不跳转
     inline: true,//实时刷新
-    port: 3000,
+    port: 3001,
     hot: true  //开启热更新
   },
   plugins: [
