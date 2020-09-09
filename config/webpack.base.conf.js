@@ -4,7 +4,7 @@ const resolve = (dir) => path.resolve(__dirname, "..", dir);
 module.exports = {
   entry: "./src/index.tsx",
   output: {
-    filename: "bundle.[hash].js",
+    filename: "js/bundle.[hash].js",
     path: path.join(__dirname, "../build"),
   },
   module: {
@@ -16,31 +16,18 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.less$/,
-        exclude: [/node_modules/],
-        use: [
-          {
-            loader: "style-loader",
+        test: /\.(jpg|png|svg|mp3)$/, //正则匹配
+        use: {
+          //匹配到的使用这个loader
+          loader: "url-loader",
+          options: {
+            //loader 参数
+            name: "[name].[ext]", //名字
+            limit: 14000, //pic大小小于url 时会变成data json存储在url里
+            // outputPath: "img/", //输出文件夹
+            // publicPath: "build/img", //打包后引用的url前加上 publicpath
           },
-          {
-            loader: "css-loader",
-            options: {
-              modules: {
-                localIdentName: "[name]_[local]_[hash:base64:5]",
-              },
-            },
-          },
-          {
-            loader: "less-loader", // compiles Less to CSS,
-            options: {
-              javascriptEnabled: true,
-            },
-          },
-        ],
+        },
       },
     ],
   },
