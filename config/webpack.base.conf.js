@@ -1,5 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+// const InterpolateHtmlPlugin = require('react-dev');
+
 const resolve = (dir) => path.resolve(__dirname, "..", dir);
 module.exports = {
   entry: "./src/index.tsx",
@@ -14,6 +17,10 @@ module.exports = {
         loader: "babel-loader",
         options: { cacheDirectory: true },
         exclude: /node_modules/,
+      },
+      {
+        test: /\.md$/,
+        use: "raw-loader",
       },
       {
         test: /\.(jpg|png|svg|mp3)$/, //正则匹配
@@ -34,6 +41,17 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, "../public"), //打包的静态资源目录地址
+          to: ".", //打包到dist下面的public
+          globOptions: {
+            ignore: ["**/*.html"],
+          },
+        },
+      ],
     }),
   ],
   resolve: {

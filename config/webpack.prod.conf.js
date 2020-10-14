@@ -50,7 +50,7 @@ module.exports = merge(baseConfig, {
     }),
     new OptimizeCSSAssetsPlugin({}),
     new CleanWebpackPlugin(),
-    new BundleAnalyzerPlugin({ analyzerPort: 8919 }),
+    // new BundleAnalyzerPlugin({ analyzerPort: 8919 }),
     new MiniCssExtractPlugin({
       filename: "css/index.[hash].css",
     }),
