@@ -46,7 +46,7 @@ module.exports = {
       patterns: [
         {
           from: path.join(__dirname, "../public"), //打包的静态资源目录地址
-          to: ".", //打包到dist下面的public
+          to: path.join(__dirname, "../build"), //打包到dist下面的public
           globOptions: {
             ignore: ["**/*.html"],
           },
