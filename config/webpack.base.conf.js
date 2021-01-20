@@ -19,11 +19,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.md$/,
-        use: "raw-loader",
-      },
-      {
-        test: /\.(jpg|png|svg|mp3)$/, //正则匹配
+        test: /\.(jpg|png|svg)$/, //正则匹配
         use: {
           //匹配到的使用这个loader
           loader: "url-loader",

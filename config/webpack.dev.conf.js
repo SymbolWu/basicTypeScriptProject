@@ -45,7 +45,7 @@ module.exports = merge(baseConfig, {
     contentBase: "./dist",
     historyApiFallback: true, //不跳转
     inline: true, //实时刷新
-    port: 8080,
+    port: 8083,
     hot: true, //开启热更新
     host: "0.0.0.0",
     after() {

@@ -4,7 +4,7 @@ export default class TimeTool {
    * @param {*} number 数字
    */
   private static addZero = (number: number): number | string =>
-    number > 9 ? number : `0${number}`;
+    number > 9 ? number : number.toString().padStart(2, "0");
   /**
    * @description 根据时间戳获取基本时间信息
    * @param {number} timestamp 时间戳
